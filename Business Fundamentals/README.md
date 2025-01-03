@@ -1,6 +1,6 @@
 
 
-# Business Fundamentals 🧠
+# Business Fundamentals 
 
 Welcome to the repository for the **Business Fundamentals** course, part of the Monsoon 2024 semester at IIIT Hyderabad. This folder serves as a comprehensive resource, encompassing assignments, study materials, and insights gathered throughout the course.
 
