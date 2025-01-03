@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Porter's Five Forces Radar Chart</title>
+    <!-- Include ECharts library -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <!-- Include Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Add a gradient background */
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e0f7fa 25%, #ffffff 100%);
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        /* Center the chart container */
+        #main {
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            margin: 50px auto;
+        }
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            color: #2c3e50;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Title -->
+    <h1>Porter's Five Forces Analysis<br>Electric Two-Wheeler Industry</h1>
+    <!-- Chart container -->
+    <div id="main"></div>
+
+    <script>
+    // Initialize the chart
+    var chartDom = document.getElementById('main');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    // Define the option for the radar chart
+    option = {
+        backgroundColor: 'transparent',
+        tooltip: {
+            trigger: 'item',
+            formatter: function (params) {
+                var dataIndex = params.dataIndex;
+                var indicators = option.radar.indicator;
+                var tooltips = [
+                    '<strong>Threat of New Entrants</strong><br>• Capital requirements<br>• Technology barriers<br>• Government support',
+                    '<strong>Bargaining Power of Suppliers</strong><br>• Supplier diversity<br>• Switching costs<br>• Technological dependency',
+                    '<strong>Bargaining Power of Buyers</strong><br>• Price sensitivity<br>• Informed consumers<br>• Low switching costs',
+                    '<strong>Threat of Substitutes</strong><br>• Gasoline vehicles<br>• Public transport<br>• Range anxiety',
+                    '<strong>Industry Rivalry</strong><br>• Numerous players<br>• Market growth<br>• Innovation pressure'
+                ];
+                return tooltips[dataIndex];
+            }
+        },
+        radar: {
+            radius: '65%',
+            center: ['50%', '55%'],
+            splitNumber: 5,
+            axisName: {
+                color: '#34495e',
+                fontSize: 14,
+                fontWeight: '600',
+                fontFamily: 'Poppins, Arial, sans-serif',
+                formatter: function(value) {
+                    // Word wrap for axis labels
+                    var maxLength = 16;
+                    var valLength = value.length;
+                    var rowN = Math.ceil(valLength / maxLength);
+                    if (rowN > 1) {
+                        var ret = '';
+                        for (var i = 0; i < rowN; i++) {
+                            var start = i * maxLength;
+                            var end = start + maxLength;
+                            var temp = value.substring(start, end) + '\n';
+                            ret += temp;
+                        }
+                        return ret;
+                    } else {
+                        return value;
+                    }
+                }
+            },
+            indicator: [
+                { name: 'Threat of New Entrants', max: 5 },
+                { name: 'Bargaining Power of Suppliers', max: 5 },
+                { name: 'Bargaining Power of Buyers', max: 5 },
+                { name: 'Threat of Substitutes', max: 5 },
+                { name: 'Industry Rivalry', max: 5 }
+            ],
+            splitArea: {
+                areaStyle: {
+                    color: [
+                        'rgba(237, 248, 251, 0.9)',
+                        'rgba(204, 236, 230, 0.7)',
+                        'rgba(153, 216, 201, 0.5)',
+                        'rgba(102, 194, 164, 0.3)',
+                        'rgba(65, 174, 118, 0.1)'
+                    ]
+                }
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#bdc3c7'
+                }
+            },
+            splitLine: {
+                lineStyle: {
+                    color: '#ecf0f1'
+                }
+            }
+        },
+        series: [{
+            name: "Impact Level",
+            type: 'radar',
+            data: [
+                {
+                    value: [3, 2, 4, 4, 5],
+                    name: 'Impact Level',
+                    areaStyle: {
+                        color: 'rgba(46, 204, 113, 0.5)'
+                    },
+                    lineStyle: {
+                        color: '#27ae60',
+                        width: 3
+                    },
+                    symbol: 'circle',
+                    symbolSize: 8,
+                    itemStyle: {
+                        color: '#27ae60',
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    }
+                }
+            ]
+        }],
+        // Enable animations
+        animationDuration: 1500,
+        animationEasing: 'cubicOut'
+    };
+
+    // Render the chart with the specified options
+    myChart.setOption(option);
+    </script>
+</body>
+</html>

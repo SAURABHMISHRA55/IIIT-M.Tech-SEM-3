@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Porter's Five Forces Analysis - Electric Two-Wheeler Industry</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+            margin: 10px 0;
+        }
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            height: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .force {
+            border: 2px solid #4a90e2;
+            border-radius: 10px;
+            padding: 15px;
+            background-color: #fff;
+            position: absolute;
+            width: 220px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .center-force {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .top-force {
+            top: 5%;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+        .bottom-force {
+            bottom: 5%;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+        .left-force {
+            top: 50%;
+            left: 5%;
+            transform: translate(0, -50%);
+        }
+        .right-force {
+            top: 50%;
+            right: 5%;
+            transform: translate(0, -50%);
+        }
+        .force-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+        .impact-level {
+            font-size: 14px;
+            color: #ff5a5f;
+            margin-bottom: 10px;
+        }
+        .force-content {
+            font-size: 14px;
+            color: #555;
+            text-align: left;
+        }
+        .force-content ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        .arrow {
+            position: absolute;
+            width: 0; 
+            height: 0; 
+            border-style: solid;
+        }
+        /* Arrows pointing towards the center */
+        .arrow-top {
+            top: 28%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 20px 10px 0 10px;
+            border-color: #4a90e2 transparent transparent transparent;
+        }
+        .arrow-bottom {
+            bottom: 28%;
+            left: 50%;
+            transform: translateX(-50%) rotate(180deg);
+            border-width: 20px 10px 0 10px;
+            border-color: #4a90e2 transparent transparent transparent;
+        }
+        .arrow-left {
+            top: 50%;
+            left: 28%;
+            transform: translateY(-50%) rotate(270deg);
+            border-width: 20px 10px 0 10px;
+            border-color: #4a90e2 transparent transparent transparent;
+        }
+        .arrow-right {
+            top: 50%;
+            right: 28%;
+            transform: translateY(-50%) rotate(90deg);
+            border-width: 20px 10px 0 10px;
+            border-color: #4a90e2 transparent transparent transparent;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                height: 1000px;
+            }
+            .force {
+                width: 80%;
+                left: 10%;
+            }
+            .center-force {
+                top: 60%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .top-force {
+                top: 5%;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+            .bottom-force {
+                bottom: 5%;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+            .left-force, .right-force {
+                top: auto;
+                left: 10%;
+                right: 10%;
+                transform: none;
+            }
+            .arrow-top, .arrow-bottom, .arrow-left, .arrow-right {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Porter's Five Forces Analysis</h1>
+    <h2>Electric Two-Wheeler Industry</h2>
+    <div class="container">
+        <!-- Center Force -->
+        <div class="force center-force">
+            <div class="force-title">Industry Rivalry</div>
+            <div class="impact-level">Impact Level: <strong>Intense</strong></div>
+            <div class="force-content">
+                <ul>
+                    <li>Fragmented market with many players</li>
+                    <li>Rapid market growth</li>
+                    <li>Continuous innovation</li>
+                    <li>Pricing pressure</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Top Force -->
+        <div class="force top-force">
+            <div class="force-title">Threat of New Entrants</div>
+            <div class="impact-level">Impact Level: <strong>Moderate to High</strong></div>
+            <div class="force-content">
+                <ul>
+                    <li>Capital and technology barriers</li>
+                    <li>Government support and incentives</li>
+                    <li>Brand loyalty and market penetration</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Bottom Force -->
+        <div class="force bottom-force">
+            <div class="force-title">Threat of Substitutes</div>
+            <div class="impact-level">Impact Level: <strong>High</strong></div>
+            <div class="force-content">
+                <ul>
+                    <li>Traditional ICE vehicles</li>
+                    <li>Public transport and ride-sharing</li>
+                    <li>Range anxiety and infrastructure</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Left Force -->
+        <div class="force left-force">
+            <div class="force-title">Bargaining Power of Suppliers</div>
+            <div class="impact-level">Impact Level: <strong>Moderate</strong></div>
+            <div class="force-content">
+                <ul>
+                    <li>Supplier landscape and availability</li>
+                    <li>Switching costs</li>
+                    <li>Technological dependency</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Right Force -->
+        <div class="force right-force">
+            <div class="force-title">Bargaining Power of Buyers</div>
+            <div class="impact-level">Impact Level: <strong>High</strong></div>
+            <div class="force-content">
+                <ul>
+                    <li>Consumer awareness and information</li>
+                    <li>Price sensitivity</li>
+                    <li>Low switching costs and brand loyalty</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Arrows -->
+        <div class="arrow arrow-top"></div>
+        <div class="arrow arrow-bottom"></div>
+        <div class="arrow arrow-left"></div>
+        <div class="arrow arrow-right"></div>
+    </div>
+</body>
+</html>
